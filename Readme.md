@@ -22,7 +22,7 @@ $ npm install --global yo @callstack-io/generator-node-module
 With Yo:
 
 ```
-$ yo callstack/node-module
+$ yo @callstack-io/node-module
 ```
 
 ## License
