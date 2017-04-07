@@ -7,6 +7,9 @@
   "files": [
     "app"
   ],
+  "scripts": {
+    "precommit": "lint-staged"
+  },
   "author": {
     "name": "Mike Grabowski",
     "email": "mike@callstack.io"
@@ -24,7 +27,10 @@
     "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^6.10.3",
+    "husky": "^0.13.3",
+    "jest": "^19.0.2",
+    "lint-staged": "^3.4.0"
   },
   "lint-staged": {
     "*.js": [
