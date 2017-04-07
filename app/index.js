@@ -30,7 +30,7 @@ module.exports = class NodeModuleGenerator extends Generator {
         message: 'What is your GitHub username / organisation?',
         store: true,
         validate: required(
-          'You have to provide a username or organisation name',
+          'You have to provide a username or organisation name'
         ),
       },
     ]);
@@ -53,7 +53,7 @@ module.exports = class NodeModuleGenerator extends Generator {
       this.fs.copyTpl(
         [`${this.templatePath()}/**`],
         this.destinationPath(),
-        tpl,
+        tpl
       );
 
       mv('gitignore', '.gitignore');
