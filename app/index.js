@@ -15,19 +15,25 @@ const repoName = name => isScoped(name) ? path.basename(name) : name;
 
 module.exports = class NodeModuleGenerator extends Generator {
   init() {
-    const askQuestions = this.prompt([{
-      name: 'moduleName',
-      message: 'What do you want to name your module?',
-      validate: required('You have to provide a name for your module'),
-    }, {
-      name: 'moduleDescription',
-      message: 'What is your module description?'
-    }, {
-      name: 'githubUsername',
-      message: 'What is your GitHub username / organisation?',
-      store: true,
-      validate: required('You have to provide a username or organisation name')
-    }]);
+    const askQuestions = this.prompt([
+      {
+        name: 'moduleName',
+        message: 'What do you want to name your module?',
+        validate: required('You have to provide a name for your module'),
+      },
+      {
+        name: 'moduleDescription',
+        message: 'What is your module description?',
+      },
+      {
+        name: 'githubUsername',
+        message: 'What is your GitHub username / organisation?',
+        store: true,
+        validate: required(
+          'You have to provide a username or organisation name',
+        ),
+      },
+    ]);
 
     return askQuestions.then(props => {
       const tpl = {
@@ -37,16 +43,18 @@ module.exports = class NodeModuleGenerator extends Generator {
         githubUsername: props.githubUsername,
         repoName: repoName(props.moduleName),
         name: this.user.git.name(),
-        email: this.user.git.email()
+        email: this.user.git.email(),
       };
 
       const mv = (from, to) => {
         this.fs.move(this.destinationPath(from), this.destinationPath(to));
       };
 
-      this.fs.copyTpl([
-        `${this.templatePath()}/**`,
-      ], this.destinationPath(), tpl);
+      this.fs.copyTpl(
+        [`${this.templatePath()}/**`],
+        this.destinationPath(),
+        tpl,
+      );
 
       mv('gitignore', '.gitignore');
       mv('ISSUE_TEMPLATE.md', '.github/ISSUE_TEMPLATE.md');
@@ -59,6 +67,6 @@ module.exports = class NodeModuleGenerator extends Generator {
     this.spawnCommandSync('git', ['init']);
   }
   install() {
-    this.installDependencies({bower: false, npm: false, yarn: true});
+    this.installDependencies({ bower: false, npm: false, yarn: true });
   }
 };
