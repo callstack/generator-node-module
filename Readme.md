@@ -13,6 +13,8 @@ Features:
 - [Prettier](https://github.com/prettier/prettier) to format your Javascript
 - [Eslint](https://github.com/eslint/eslint) and `eslint-config-airbnb` to keep your code consistent
 - [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged) to test changes before pushing
+- MIT license and Code of conduct
+- Github issues template
 
 This is what we use at [Callstack.io](callstack.io) for various projects, including [Haul](https://github.com/callstack-io/haul).
 
