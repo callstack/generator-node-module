@@ -1,6 +1,8 @@
 @callstack-io/generator-node-module
 ===========
 
+<a title="Join on Slack" href="slack.callstack.io"><img src="https://slack.callstack.io/badge.svg" /></a>
+
 A [Yeoman](http://yeoman.io/) generator to author libraries in ES2015 (and beyond!) for Node.
 
 Features:

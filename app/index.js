@@ -59,6 +59,7 @@ module.exports = class NodeModuleGenerator extends Generator {
       mv('gitignore', '.gitignore');
       mv('ISSUE_TEMPLATE.md', '.github/ISSUE_TEMPLATE.md');
       mv('eslintignore', '.eslintignore');
+      mv('editorconfig', '.editorconfig');
       mv('flowconfig', '.flowconfig');
       mv('_package.json', 'package.json');
     });
