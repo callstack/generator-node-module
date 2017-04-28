@@ -1,6 +1,6 @@
 {
   "name": "@callstack-io/generator-node-module",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Scaffold out a node module",
   "license": "MIT",
   "repository": "callstack-io/generator-node-module",
