@@ -15,7 +15,6 @@
     "node": ">=6"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "flow": "flow",
     "lint": "eslint src",
     "prepublish": "babel src --out-dir lib",
