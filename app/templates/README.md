@@ -2,7 +2,7 @@
 
 > <%= moduleDescription %>
 
-<a title="Join on Slack" href="slack.callstack.io"><img src="https://slack.callstack.io/badge.svg" /></a>
+<a title="Join on Slack" href="https://slack.callstack.io"><img src="https://slack.callstack.io/badge.svg" /></a>
 
 ## Install
 

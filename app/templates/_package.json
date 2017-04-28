@@ -4,12 +4,11 @@
   "description": "<%= moduleDescription %>",
   "license": "MIT",
   "repository": "github:<%= githubUsername %>/<%= repoName %>",
-  "bugs": "https://github.com/<%= githubUsername %>/<%= repoName %>/issues",
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>"
   },
-  "files": [
+	"files": [
     "lib"
   ],
   "engines": {
@@ -19,13 +18,14 @@
     "precommit": "lint-staged",
     "flow": "flow",
     "lint": "eslint src",
-    "prepublish": "babel src --out-dir lib",
+		"prepublish": "babel src --out-dir lib",
     "jest": "jest src",
-    "test": "npm run flow && npm run lint && npm run jest"
+    "test": "npm run flow && npm run lint && npm run jest",
+    "format": "eslint --fix src"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.24.0",
+		"babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
@@ -37,20 +37,12 @@
     "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "^0.42.0",
-    "husky": "^0.13.3",
     "jest": "^19.0.2",
-    "lint-staged": "^3.4.0",
-    "npm-release": "^1.0.0",
+		"npm-release": "^1.0.0",
     "prettier": "^0.22.0"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --single-quote --trailing-comma all --write",
-      "git add"
-    ]
   },
   "babel": {
     "presets": [
@@ -76,35 +68,55 @@
       "prettier/flowtype",
       "prettier/react"
     ],
+    "plugins": [
+      "flowtype",
+      "prettier"
+    ],
     "env": {
       "node": true,
       "es6": true
+    },
+    "globals": {
+      "ReactClass": true
     },
     "parserOptions": {
       "sourceType": "module"
     },
     "rules": {
-      "strict": 0,
-      "arrow-body-style": 0,
-      "arrow-parens": 0,
-      "class-methods-use-this": 0,
-      "default-case": 0,
-      "generator-star-spacing": 0,
-      "global-require": 0,
-      "new-cap": 0,
-      "no-alert": 0,
-      "no-confusing-arrow": 0,
-      "no-console": 0,
-      "no-constant-condition": 0,
-      "no-duplicate-imports": 0,
-      "no-plusplus": 0,
-      "no-restricted-syntax": 0,
+      "prettier/prettier": ["error", {
+        "trailingComma": "all",
+        "singleQuote": true
+      }],
+
       "no-underscore-dangle": 0,
       "no-use-before-define": 0,
+      "no-unused-expressions": 0,
+      "new-cap": 0,
+      "no-plusplus": 0,
+      "no-class-assign": 0,
+      "no-duplicate-imports": 0,
+
       "import/no-duplicates": 0,
       "import/extensions": 0,
       "import/no-unresolved": 0,
-      "import/no-dynamic-require": 0
+      "import/no-dynamic-require": 0,
+
+      "flowtype/boolean-style": [
+        2,
+        "boolean"
+      ],
+      "flowtype/no-weak-types": 1,
+      "flowtype/require-parameter-type": 2,
+      "flowtype/require-return-type": [
+        0,
+        "always",
+        {
+          "annotateUndefined": "never"
+        }
+      ],
+      "flowtype/require-valid-file-annotation": 2,
+      "flowtype/use-flow-type": 1,
+      "flowtype/valid-syntax": 1
     }
   }
 }

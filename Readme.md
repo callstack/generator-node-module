@@ -1,7 +1,7 @@
 @callstack-io/generator-node-module
 ===========
 
-<a title="Join on Slack" href="slack.callstack.io"><img src="https://slack.callstack.io/badge.svg" /></a>
+<a title="Join on Slack" href="https://slack.callstack.io"><img src="https://slack.callstack.io/badge.svg" /></a>
 
 A [Yeoman](http://yeoman.io/) generator to author libraries in ES2015 (and beyond!) for Node.
 
@@ -12,7 +12,6 @@ Features:
 - [Jest](https://facebook.github.io/jest/) because testing matters
 - [Prettier](https://github.com/prettier/prettier) to format your Javascript
 - [Eslint](https://github.com/eslint/eslint) and `eslint-config-airbnb` to keep your code consistent
-- [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged) to test changes before pushing
 - MIT license and Code of conduct
 - Github issues template
 
