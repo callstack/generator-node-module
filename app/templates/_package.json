@@ -8,7 +8,7 @@
     "name": "<%= name %>",
     "email": "<%= email %>"
   },
-	"files": [
+  "files": [
     "lib"
   ],
   "engines": {
@@ -18,14 +18,14 @@
     "precommit": "lint-staged",
     "flow": "flow",
     "lint": "eslint src",
-		"prepublish": "babel src --out-dir lib",
+    "prepublish": "babel src --out-dir lib",
     "jest": "jest src",
     "test": "npm run flow && npm run lint && npm run jest",
     "format": "eslint --fix src"
   },
   "dependencies": {},
   "devDependencies": {
-		"babel-cli": "^6.24.0",
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
@@ -41,7 +41,7 @@
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "^0.42.0",
     "jest": "^19.0.2",
-		"npm-release": "^1.0.0",
+    "npm-release": "^1.0.0",
     "prettier": "^0.22.0"
   },
   "babel": {
