@@ -8,6 +8,8 @@
     "app"
   ],
   "scripts": {
+    "lint": "eslint .",
+    "test": "jest",
     "precommit": "lint-staged"
   },
   "author": {
