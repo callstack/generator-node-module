@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
+    "codecov": "^2.3.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-prettier": "^1.5.0",
