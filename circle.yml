@@ -18,7 +18,6 @@ dependencies:
 test:
   override:
     - yarn run lint
-    - yarn run flow
     - yarn run test -- --coverage
   post:
     - cat ./coverage/lcov.info | ./node_modules/.bin/codecov
