@@ -30,14 +30,8 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-env": "^1.2.2",
     "babel-eslint": "^7.2.1",
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-config-prettier": "^1.5.0",
-    "eslint-plugin-flowtype": "^2.30.4",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-prettier": "^2.0.1",
-    "eslint-plugin-react": "^6.10.3",
+    "eslint": "^4.4.1",
+    "eslint-config-callstack-io": "^0.4.1",
     "flow-bin": "^0.42.0",
     "jest": "^19.0.2",
     "np": "^2.16.0",
@@ -60,75 +54,6 @@
     ]
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": [
-      "airbnb",
-      "prettier",
-      "prettier/flowtype",
-      "prettier/react"
-    ],
-    "plugins": [
-      "flowtype",
-      "prettier"
-    ],
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "globals": {
-      "ReactClass": true
-    },
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "trailingComma": "all",
-          "singleQuote": true
-        }
-      ],
-      "no-underscore-dangle": 0,
-      "no-use-before-define": 0,
-      "no-unused-expressions": 0,
-      "new-cap": 0,
-      "no-plusplus": 0,
-      "no-class-assign": 0,
-      "no-duplicate-imports": 0,
-      "react/jsx-filename-extension": [
-        0,
-        {
-          "extensions": [
-            ".js",
-            ".jsx"
-          ]
-        }
-      ],
-      "react/sort-comp": 0,
-      "react/forbid-prop-types": 1,
-      "react/prop-types": 0,
-      "react/require-default-props": 0,
-      "import/no-duplicates": 0,
-      "import/extensions": 0,
-      "import/no-unresolved": 0,
-      "import/no-dynamic-require": 0,
-      "flowtype/boolean-style": [
-        2,
-        "boolean"
-      ],
-      "flowtype/no-weak-types": 1,
-      "flowtype/require-parameter-type": 2,
-      "flowtype/require-return-type": [
-        0,
-        "always",
-        {
-          "annotateUndefined": "never"
-        }
-      ],
-      "flowtype/require-valid-file-annotation": 2,
-      "flowtype/use-flow-type": 1,
-      "flowtype/valid-syntax": 1
-    }
+    "extends": "callstack-io"
   }
 }
