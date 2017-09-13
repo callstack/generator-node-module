@@ -20,7 +20,7 @@
     "prepublish": "babel src --out-dir lib --ignore **/__tests__/**",
     "jest": "jest src",
     "test": "npm run flow && npm run lint && npm run jest",
-    "format": "eslint --fix src"
+    "format": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\""
   },
   "dependencies": {},
   "devDependencies": {
@@ -34,6 +34,7 @@
     "eslint-config-callstack-io": "^0.4.1",
     "flow-bin": "^0.54.1",
     "jest": "^21.0.2",
+    "prettier": "^1.6.1",
     "np": "^2.16.0"
   },
   "babel": {
