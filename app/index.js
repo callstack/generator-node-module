@@ -82,7 +82,7 @@ module.exports = class NodeModuleGenerator extends Generator {
       jest: true,
       prettier: true,
       flow: true,
-      testCase: 'npm run flow && npm run lint && npm run jest',
+      testCase: '"npm run flow && npm run eslint && npm run jest"',
     });
 
     this._processFiles(tpl);
