@@ -19,6 +19,7 @@
     <% if (flow) { %>"flow": "flow",<% } %>
     <% if (eslint) { %>"eslint": "eslint src",<% } %>
     <% if (jest) { %>"jest": "jest src",<% } %>
+    <% if (precommit) { %>"precommit": "lint-staged",<% } %>
     <% if (prettier) { %>"prettier": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\"",<% } %>
     "test": <%- testCase %>
   },
@@ -30,6 +31,8 @@
     <% if (flow) { %>"flow-bin": "^0.54.1",<% } %>
     <% if (jest) { %>"jest": "^21.0.2",<% } %>
     <% if (prettier) { %>"prettier": "^1.6.1",<% } %>
+    <% if (precommit) { %> "husky": "^0.14.3",
+    "lint-staged": "^4.4.2",<% } %>
     "np": "^2.16.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

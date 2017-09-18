@@ -15,16 +15,15 @@ const repoName = name => (isScoped(name) ? path.basename(name) : name);
 
 module.exports = class NodeModuleGenerator extends Generator {
   initialize() {
-    this.log(
-      `
+    this.log(`
   
     Every setting has babel transpiler included.
-    Config types explained:
 
-     Basic: Prettier, Eslint, Jest, Flow included.
-     Custom: Add or remove features.
-      `
-    );
+    Config types explained:
+      - Basic: Prettier, Eslint, Jest, Flow, precommit hook included.
+      - Custom: Add or remove features.
+    
+    `);
     const questionConfigType = [
       {
         type: 'list',
@@ -82,6 +81,7 @@ module.exports = class NodeModuleGenerator extends Generator {
       jest: true,
       prettier: true,
       flow: true,
+      precommit: true,
       testCase: '"npm run flow && npm run eslint && npm run jest"',
     });
 
@@ -94,30 +94,81 @@ module.exports = class NodeModuleGenerator extends Generator {
         name: 'features',
         type: 'checkbox',
         message: 'Please choose desired features',
-        choices: ['Eslint', 'Prettier', 'Flow', 'Jest'],
+        choices: [
+          {
+            name: 'Eslint',
+            value: 'eslint',
+          },
+          {
+            name: 'Prettier',
+            value: 'prettier',
+          },
+          {
+            name: 'Flow',
+            value: 'flow',
+          },
+          {
+            name: 'Jest',
+            value: 'jest',
+          },
+          {
+            name: 'Husky + Lint Staged as precommit hook',
+            value: 'precommit',
+            short: 'Precommit hook',
+          },
+        ],
       },
     ]);
 
     return questionToAsk.then(answers => {
       const features = {
-        flow: false,
-        eslint: false,
-        prettier: false,
-        jest: false,
+        flow: {
+          value: false,
+          testable: true,
+        },
+        eslint: {
+          value: false,
+          testable: true,
+        },
+        prettier: {
+          value: false,
+          testable: true,
+        },
+        jest: {
+          value: false,
+          testable: true,
+        },
+        precommit: {
+          value: false,
+          testable: false,
+        },
+        testCase: {
+          value: '',
+          testable: false,
+        },
       };
+
       let testCase = '';
       for (const feature of answers.features) {
-        features[feature.toLowerCase()] = feature;
-        if (!testCase) {
-          testCase += `"npm run ${feature.toLowerCase()}`;
-        } else {
-          testCase += ` && npm run ${feature.toLowerCase()}`;
+        features[feature].value = feature;
+
+        if (features[feature].testable) {
+          testCase += testCase
+            ? ` && npm run ${feature}`
+            : `npm run ${feature}`;
         }
       }
-      if (!testCase) testCase = '"echo No tests!';
-      features.testCase = `${testCase}"`;
+      features.testCase.value = testCase ? `"${testCase}"` : '"echo No tests!"';
 
-      const tpl = Object.assign({}, template, features);
+      const configuredTemplate = Object.entries(
+        features
+      ).reduce((a, [name, config]) => {
+        // eslint-disable-next-line
+        a[name] = config.value;
+        return a;
+      }, {});
+
+      const tpl = { ...template, ...configuredTemplate };
 
       this._processFiles(tpl);
     });
