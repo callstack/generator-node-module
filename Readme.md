@@ -11,6 +11,7 @@ Features:
 - [Flow](https://flow.org/) for faster coding with static type checking
 - [Jest](https://facebook.github.io/jest/) because testing matters
 - [Prettier](https://github.com/prettier/prettier) to format your Javascript
+- [Husky](https://github.com/typicode/husky) + [Lint Staged](https://github.com/okonet/lint-staged) for neat precommit check
 - [Eslint](https://github.com/eslint/eslint) and `eslint-config-airbnb` to keep your code consistent
 - MIT license and Code of conduct
 - Github issues template
