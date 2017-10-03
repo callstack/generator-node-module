@@ -57,6 +57,9 @@
     ]
   }
   <% if (eslint) { %>,"eslintConfig": {
-    "extends": "callstack-io"
+      "extends": "callstack-io"
+  }<% } %>
+  <% if (precommit) { %>,"lint-staged": {
+    "*.js": ["eslint --fix", "git add"]
   }<% } %>
 }
