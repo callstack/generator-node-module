@@ -32,7 +32,7 @@
     <% if (jest) { %>"jest": "^21.0.2",<% } %>
     <% if (prettier) { %>"prettier": "^1.6.1",<% } %>
     <% if (precommit) { %> "husky": "^0.14.3",
-    "lint-staged": "^4.4.2",<% } %>
+    "lint-staged": "^4.2.3",<% } %>
     "np": "^2.16.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
